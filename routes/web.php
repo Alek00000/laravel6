@@ -18,14 +18,16 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+        'articles' => App\Article::all()
+    ]);
 });
 
-Route::get('/articles/{article}', 'ArticleController@show');
+Route::get('/articles', 'ArticlesController@index');
+Route::get('/articles/create', 'ArticlesController@create');
+Route::get('/articles/{article}', 'ArticlesController@show');
 
-Route::get('/careers', function () {
-    return view('careers');
-});
+
 
 
 Route::get('/contact', function () {
