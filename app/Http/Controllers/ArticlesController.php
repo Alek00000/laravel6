@@ -26,16 +26,39 @@ class ArticlesController extends Controller
       }
 
 
-      public function store(){
+      public function store($request){
+        $rules = [
+            'title' => 'require',
+            'excerpt' => 'require',
+            'body' => 'require',
+        ];
+        return $this->validate($request, $rules);
+
+
+        $article = new Article();
+
+        $article -> title = request('title');
+        $article -> excerpt = request('excerpt');
+        $article -> body = request('body');
+        $article->save();
+        return redirect('/articles');
+    }
+
+    public function edit($id){
+        $article = Article::find($id);
+
+        return view('articles.edit', compact('article'));
 
     }
 
-    public function edit(){
+    public function update($id){
+        $article = Article::find($id);
+        $article -> title = request('title');
+        $article -> excerpt = request('excerpt');
+        $article -> body = request('body');
+        $article->save();
 
-    }
-
-    public function update(){
-
+        return redirect('/articles/'. $article->id);
     }
 
     public function destroy(){

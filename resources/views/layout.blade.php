@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html >
 <!--
 Design by TEMPLATED
 http://templated.co
@@ -19,6 +19,7 @@ Released   : 20140225
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="/css/default.css" rel="stylesheet"  />
 <link href="/css/fonts.css" rel="stylesheet"  />
+@yield('head')
 //<link href="/css/app.css" rel="stylesheet"  />
 
 
