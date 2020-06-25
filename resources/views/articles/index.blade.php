@@ -4,7 +4,7 @@
 
 <div id="wrapper">
 	<div id="page" class="container">
-        @foreach ($articles as $article )
+        @forelse ($articles as $article )
 		<div id="content">
             <br><br>
 			<div class="title">
@@ -13,9 +13,14 @@
                 </h2>
 				<span class="byline">Mauris vulputate dolor sit amet nibh</span> </div>
 			<p><img src="/images/banner.jpg" alt="" class="image image-full" /> </p>
-			{{ $article->body }}
+            {{ $article->excerpt }}
         </div>
-        @endforeach
+
+        @empty
+        <p>No relevant articles yet.</p>
+
+        @endforelse
+
     </div>
 
 </div>

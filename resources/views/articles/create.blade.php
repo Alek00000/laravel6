@@ -15,7 +15,7 @@
             <div class="field">
                 <label class="label" for="title">Title</label>
                 <div class="control">
-                   <input class="input " type="text" name="title" id="title">
+                   <input class="input " type="text" name="title" id="title" required>
 
                 </div>
             </div>
@@ -30,6 +30,20 @@
                 <label class="label" for="body">Body</label>
                 <div class="control">
                     <textarea name="body" id="body" class="textarea"></textarea>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="body">Tags</label>
+                <div class="select is-multiple control">
+                    <select name="tags[]" multiple>
+                    @error('tags')
+                        <p class="help is-danger">{{ $message }}</p>
+                    @enderror
+                    @foreach ($tags as $tag)
+                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                    @endforeach
+                </select>
                 </div>
             </div>
 

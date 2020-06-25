@@ -10,7 +10,7 @@
     <div id="page" class="container">
         <h1 class="heading has-text-weight-bold is-size-4"> UPDATE article</h1>
 
-        <form action="/articles/{{ $article->id }}" method="POST">
+        <form action="$article->path()" method="POST">
             @csrf
             @method('PUT')
 
